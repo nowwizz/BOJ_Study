@@ -12,10 +12,10 @@ const R = input.slice(3, 3 + m).map((a) => a.split(" ").map(Number));
 
 let count = 0;
 let f = false;
-const visited = [];
+let visited = Array(n + 1).fill(false);
 
 const func = (A) => {
-  visited.push(A);
+  visited[A] = true;
   if (A === Y) {
     f = true;
     return;
@@ -25,7 +25,7 @@ const func = (A) => {
       break;
     }
     if (R[i][0] === A) {
-      if (!visited.includes(R[i][1])) {
+      if (visited[R[i][1]] === false) {
         count++;
         func(R[i][1]);
         if (f === false) {
@@ -33,7 +33,7 @@ const func = (A) => {
         }
       }
     } else if (R[i][1] === A) {
-      if (!visited.includes(R[i][0])) {
+      if (visited[R[i][0]] === false) {
         count++;
         func(R[i][0]);
         if (f === false) {

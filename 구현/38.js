@@ -18,15 +18,15 @@ for (let i = 0; i < N - 7; i++) {
       for (let l = j; l < j + 8; l++) {
         if ((k + l) % 2 === 1) {
           if (arr[k][l] === "B") {
-            W++;
-          } else {
             B++;
+          } else {
+            W++;
           }
         } else {
           if (arr[k][l] === "B") {
-            B++;
-          } else {
             W++;
+          } else {
+            B++;
           }
         }
       }
